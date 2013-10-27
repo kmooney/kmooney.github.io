@@ -1,9 +1,0 @@
----
-layout: post
-title:  "I'm trying a test post."
-date:   2013-10-27 11:14:43
-categories: jekyll update
----
-*This is a test Post*
-_I can barely remember how to use markdown._
-**This is apparently red carpet markdown**
