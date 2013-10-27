@@ -18,7 +18,7 @@ body {
   font-size: 26px;
   text-align: center;
   display:block;
-  background:repeating-linear-gradient(-45deg, #fafafa, #fafafa 3px, #dee 3px, #dee 90px) fixed;
+  background:repeating-linear-gradient(-45deg, #bbcccf, #bbcccf 40px, #dee 40px, #dee 80px) fixed;
 }
 
 #home { 
