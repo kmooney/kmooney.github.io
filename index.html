@@ -1,0 +1,17 @@
+---
+layout: default
+title: kevn.co
+---
+
+<div id="home">
+    <ul class="hero pllrs2 _211">
+        {% for post in site.posts %} 
+        <li class="column card">
+            <h3><a class="linktext" href="{{ post.url}}">{{ post.title }}</a></h3>
+            <span class="date">{{ post.date | date: "%B %-d, %Y"}}</span>
+            <hr/>
+            <div class="excerpt">{{ post.excerpt }}</div>
+        </li>
+        {% endfor %}  
+    </ul>
+</div>

@@ -1,0 +1,151 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+
+body {
+  background-color: #FFF;
+  font-family: "Merriweather", "Times New Roman", serif;
+  font-size: 26px;
+  text-align: center;
+  display:block;
+  background:repeating-linear-gradient(-45deg, #fafafa, #fafafa 3px, #dee 3px, #dee 90px) fixed;
+}
+
+#home { 
+    height: 100%;
+    width: 80%;
+    margin-left: 10%; 
+    float: left;
+}
+
+#home ul.hero { 
+    height: 100%;
+    display:block;
+}
+
+#home li.column { 
+    display:block;
+}
+
+.links ul { 
+    display: block;
+}
+
+.links li { 
+    font-size: 0.8em;
+    list-style: none;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.links a { 
+    text-decoration: none;
+}
+
+div#header { 
+    z-index: 99;
+    display:block;
+    background: #765;
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.name { 
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.linktext { 
+    color: #efefef;
+    text-shadow: rgba(0,0,0,0.8) 0px 1px 3px;
+}
+
+.my_face { 
+    display: block;
+    background: #fefefe url('../img/your-giffed-face.gif') -25px 0px;
+    float: left;
+    height: 150px;
+    width: 150px;
+    text-indent: -9999px;
+    border-radius: 150px;
+
+}
+
+div#header h3 { 
+    float:   left;
+    display: block;
+    padding: 0px;
+    margin: 0px; 
+}
+
+.card { 
+    margin-top: 20px;
+    background: #fefefe;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.6);
+    min-height: 200px;
+}
+
+.card .date { 
+    display: block;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    padding: 0;
+    font-size: 0.6em;
+    font-style: italic;
+    color: #ba9;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.card h3 { 
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.card h3 a { 
+    text-decoration: none;
+    color: #765;
+    text-shadow: none;
+    font-size: 0.8em;
+}
+
+.card hr { 
+    display:block;
+    float: left;
+    width: 100%;
+    padding:0;
+    margin:0;
+    border: 1px solid #cdd;
+    margin-bottom:10px;
+}
+
+.card .excerpt { 
+    text-align: left;
+    margin-left: 10px;
+    text-decoration: none;
+    display: block;
+    float: left;
+    font-weight: light;
+    font-size: 0.6em;
+    padding-bottom: 10px;
+}
+
+
