@@ -13,7 +13,9 @@
 html, body { height: 100%; }
 
 body {
-  background-color: rgb(148,231,246);
+  background-color: rgb(100,179,255);
+  background: radial-gradient(circle 200px at 50% 50%, rgb(100,179,255) 0%, black 1500px);
+
   font-family: "Open Sans", "Helvetica", sans-serif;
   font-size: 26px;
   text-align: center;
@@ -44,7 +46,6 @@ body {
     font-size: 1em;
     list-style: none;
     font-weight: 600;
-    font-style: italic;
 }
 
 .links a { 
@@ -73,8 +74,8 @@ div#header {
 }
 
 #header .linktext { 
-    color: #232323;
-    font-weight: lighter;
+    color: rgb(245, 245, 255);
+    font-weight: 100;
 }
 
 .my_face { 
