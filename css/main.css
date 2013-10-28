@@ -14,7 +14,7 @@ html, body { height: 100%; }
 
 body {
   background-color: rgb(100,179,255);
-  background: radial-gradient(circle 200px at 50% 50%, rgb(100,179,255) 0%, black 1500px);
+  background: fixed radial-gradient(circle 200px at 50% 50%, rgb(100,179,255) 0%, black 1500px);
 
   font-family: "Open Sans", "Helvetica", sans-serif;
   font-size: 26px;
@@ -76,6 +76,7 @@ div#header {
 #header .linktext { 
     color: rgb(245, 245, 255);
     font-weight: 100;
+    text-shadow: 0px -2px 4px rgba(0,0,0,0.8);
 }
 
 .my_face { 
