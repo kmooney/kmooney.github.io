@@ -145,8 +145,13 @@ div#header h3 {
     margin-bottom:10px;
 }
 
+.card ul, 
 .card p {
     margin-bottom: 20px;
+}
+
+.card ul { 
+    margin-left: 20px;
 }
 
 div.highlight { 
