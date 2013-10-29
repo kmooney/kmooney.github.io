@@ -1,5 +1,3 @@
-Finish card css
-Style blog page.
 Build about page with the animated gif :)
-Make "Blog" in header go to index
-Make all links go to about=_blank 
+Make all external links go to about=_blank 
+Add contact page - point to google doc or maybe just email ya.
