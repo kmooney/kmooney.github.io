@@ -1,11 +1,11 @@
 
 Socket = function() { 
     var server = "ws://localhost:8686";
-
+    var t = this;
     this.socket = new WebSocket(server+"/chat");
 
     this.socket.onmessage = function(evt) { 
-        console.log(evt);
+        console.log(evt.msg);
     };
 
     this.socket.onclose = function(evt) { 
@@ -17,10 +17,9 @@ Socket = function() {
     };
 
     this.write = function(msg) { 
-        socket.write(msg);
+        t.socket.send(msg);
     };
 
 };
 
 s = new Socket();
-s.write('helo');
