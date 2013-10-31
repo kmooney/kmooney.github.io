@@ -1,3 +1,2 @@
-Build about page with the animated gif :)
-Make all external links go to about=_blank 
-Add contact page - point to google doc or maybe just email ya.
+Add a comments section.  External, plz.  Put it on yr digital ocean.
+Fix right padding on homepage cards
