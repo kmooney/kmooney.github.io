@@ -1,0 +1,19 @@
+---
+title: Comments System
+layout: post
+date: 2013-10-30 
+categories: kevn.co
+---
+
+Here I am, a guy with a statically generated blog, trying to add comments.  I've already added a contact page that just goes to google docs, though you wouldn't know it's google docs just to look.
+
+Now, I need to figure out how to get comments up and running on this site.  I'm thinking that what I will do is run a tornado server elsewhere, then make a teeny js client that will live at the bottom of each blog page to show comments.  I can turn comments on or off by editing my [Jekyll front matter](http://jekyllrb.com/docs/frontmatter/).
+
+I'm also going to hook in jade for the comments layouts.  Hopefully, I can get it going for the JS client.  Actually, it would be even better to deliver the JS code itself from chat.kevn.co -- where the websocket server will also live.
+
+This should be interesting.
+
+Thanks for reading!
+
+:x!
+
