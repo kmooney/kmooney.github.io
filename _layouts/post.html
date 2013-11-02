@@ -11,10 +11,14 @@ comments: true
                 {{ content }}
         </div>
         {% if page.showcomments == true %} 
-        <div class="commentariat" ng-app>
+        <div class="commentariat" ng-app="myApp">
             <div ng-controller="ChatController">
-                <li ng-repeat="comment in comments">
-                </li>
+                <ul>
+                    <li ng-repeat="comment in comments">
+                        <span class="email">[[ comment.email ]]</span>
+                        <span class="message">[[ comment.message ]]</span>
+                    </li>
+                </ul>
                 <form ng-submit="addComment()">
                     <p>
                         Your Email: 

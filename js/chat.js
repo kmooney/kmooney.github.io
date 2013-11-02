@@ -1,12 +1,17 @@
 
 function ChatController($scope) { 
-    Socket = function() {
+
+    var Socket = function() {
         var server = "ws://localhost:8686";
         var t = this;
         this.socket = new WebSocket(server+"/chat");
 
         this.socket.onmessage = function(evt) { 
-            console.log(JSON.parse(evt.data));
+            var message = JSON.parse(evt.data);
+            console.log(message.email);
+            console.log(message.message);
+            $scope.comments.push({message: message.message, email: message.email});
+            $scope.$apply();
         };
 
         this.socket.onclose = function(evt) { 
@@ -48,3 +53,8 @@ function ChatController($scope) {
 
 
 }
+
+var myApp = angular.module('myApp', [], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+});
