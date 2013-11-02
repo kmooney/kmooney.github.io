@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 <div class="post">
     <div class="card">
@@ -9,5 +10,25 @@ layout: default
         <div class="post_body">
                 {{ content }}
         </div>
+        {% if page.showcomments == true %} 
+        <div class="commentariat" ng-app>
+            <div ng-controller="ChatController">
+                <li ng-repeat="comment in comments">
+                </li>
+                <form ng-submit="addComment()">
+                    <p>
+                        Your Email: 
+                        <input type="text" ng-model="commentEmail">
+                    </p>
+                    <p>
+                        Comment:
+                        <textarea ng-model="commentMessage">
+                        </textarea>
+                    </p>
+                    <input type="submit"/>
+                </form>
+            </div>  
+        </div>        
+        {% endif %} 
     </div>
 </div>
