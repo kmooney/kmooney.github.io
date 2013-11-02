@@ -10,7 +10,14 @@ function ChatController($scope) {
             var message = JSON.parse(evt.data);
             console.log(message.email);
             console.log(message.message);
-            $scope.comments.push({message: message.message, email: message.email});
+            if (message.type == 'message') { 
+                $scope.comments.push({message: message.message, email: message.email});
+            } else if (message.type == 'haidouzo') { 
+                var objects = message.objects;
+                for (var i = 0 ; i < objects.length; i ++) { 
+                     $scope.comments.push({message: objects[i].message, email: objects[i].email});
+                } 
+            }
             $scope.$apply();
         };
 
@@ -38,7 +45,6 @@ function ChatController($scope) {
         };
 
     };
-
 
     $scope.socket = new Socket();
 
