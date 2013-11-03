@@ -11,11 +11,11 @@ function ChatController($scope) {
             console.log(message.email);
             console.log(message.message);
             if (message.type == 'message') { 
-                $scope.comments.push({message: message.message, email: message.email});
+                $scope.comments.push({message: message.message, emailhash: message.emailhash});
             } else if (message.type == 'haidouzo') { 
                 var objects = message.objects;
                 for (var i = 0 ; i < objects.length; i ++) { 
-                     $scope.comments.push({message: objects[i].message, email: objects[i].email});
+                     $scope.comments.push({message: objects[i].message, emailhash: objects[i].emailhash});
                 } 
             }
             $scope.$apply();
@@ -26,7 +26,6 @@ function ChatController($scope) {
         };
 
         this.socket.onopen = function(evt) { 
-            console.log("Connection Opened!");
             msg = JSON.stringify({
                 urlhash: String(CryptoJS.MD5(window.location.href)),
                 type: 'gimme'
@@ -36,7 +35,7 @@ function ChatController($scope) {
 
         this.send = function(email, comment) { 
             msg = JSON.stringify({
-                email: email, 
+                emailhash: String(CryptoJS.MD5(email)), 
                 type: 'message',
                 message: comment,
                 urlhash: String(CryptoJS.MD5(window.location.href))
@@ -48,16 +47,13 @@ function ChatController($scope) {
 
     $scope.socket = new Socket();
 
-    $scope.comments = [ 
-    ];
+    $scope.comments = [ ];
 
     $scope.addComment = function() {
         console.log("Adding a comment."); 
         $scope.socket.send($scope.commentEmail, $scope.commentMessage);
         $scope.commentMessage = '';
     };
-
-
 }
 
 var myApp = angular.module('myApp', [], function($interpolateProvider) {

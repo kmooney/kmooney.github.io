@@ -15,7 +15,7 @@ comments: true
             <div ng-controller="ChatController">
                 <ul>
                     <li ng-repeat="comment in comments">
-                        <span class="email">[[ comment.email ]]</span>
+                        <img src="http://www.gravatar.com/avatar/[[ comment.emailhash ]]/small/">
                         <span class="message">[[ comment.message ]]</span>
                     </li>
                 </ul>
