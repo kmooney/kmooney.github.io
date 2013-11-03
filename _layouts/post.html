@@ -7,6 +7,11 @@ comments: true
         <h3>{{ page.title }}</h3>
         <span class="date">{{ page.date | date: "%B %-d, %Y" }}</span>
         <hr/>
+        <div class="post_image">
+                {% if page.image %} 
+                <img src="{{ page.image }}"/>
+                {% endif %} 
+        </div>
         <div class="post_body">
                 {{ content }}
         </div>
