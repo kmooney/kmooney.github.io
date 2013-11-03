@@ -1,5 +1,4 @@
 Fix right padding on homepage cards
-Fix up add comment form.  CSS + JS.
 Maybe hide the email field when you are done. 
 Switch it to a "(change)" link.
-
+Fix bug where comments show on all listening pages.
