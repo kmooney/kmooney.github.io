@@ -14,24 +14,26 @@ comments: true
         <div class="comments" ng-app="myApp">
             <h3>Comments</h3>
             <div ng-controller="ChatController">
+                <form ng-submit="addComment()">
+                    <p>
+                    <label>
+                        Email Address: 
+                        <input type="text" ng-model="commentEmail" helptext="Emails are not stored, just used for avatars."></label>
+
+                        <span class="helptext">Your email is never ever stored or displayed to other users.  I use it to get your gravatar.  If you don't have one, head to <a target="_blank" href="http://gravatar.com">gravatar.com</a> and set it up!</span>
+                    </p>
+                    <p>
+                    <textarea ng-model="commentMessage" ng-enter="addComment()">
+                    </textarea>
+                    </p>
+                </form>
+
                 <ul class="commentlist">
                     <li ng-repeat="comment in comments" id="[[ comment.id ]]">
                         <img src="http://www.gravatar.com/avatar/[[ comment.emailhash ]]?s=50&d=identicon">
                         <span class="message">[[ comment.message ]]</span>
                     </li>
                 </ul>
-                <form ng-submit="addComment()">
-                    <p>
-                    <label>Your Email: 
-                        <input type="text" ng-model="commentEmail" helptext="Emails are not stored, just used for avatars."></label>
-                    </p>
-                    <p>
-                    <label>Comment:
-                        <textarea ng-model="commentMessage" ng-enter="addComment()">
-                        </textarea>
-                    </label>
-                    </p>
-                </form>
             </div>  
         </div>        
         {% endif %} 
