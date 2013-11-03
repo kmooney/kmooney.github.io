@@ -1,4 +1,8 @@
 Fix right padding on homepage cards
 Maybe hide the email field when you are done. 
-Switch it to a "(change)" link.
+  -> Switch it to a "(change)" link.
 Fix bug where comments show on all listening pages.
+Fix comment wrapping CSS on narrow (read: mobile) screens.
+Fix blog post graphics placement on Safari
+Test IE 9, 10
+
