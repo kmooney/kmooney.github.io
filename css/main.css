@@ -186,4 +186,33 @@ div.highlight {
     float: left;
 }
 
+.comments { 
+    display:block;
+    float: left;
+    font-size: 0.5em;
+    width: 100%;
+}
+.comments ul {
+    display: block;
+    float: left;
+    list-style: none;
+    height: 500px; 
+    width:100%;
+    overflow: scroll;
+}
+.comments img { 
+    float: left;
+    display:block;
+}
+.comments span.message { 
+    float:left;
+    display:block;
+    margin-left:30px;
+    text-align: left;
+}
+.comments ul li { 
+    display:block;
+    float:left;
+    clear:left;
+}
 

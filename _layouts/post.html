@@ -11,25 +11,26 @@ comments: true
                 {{ content }}
         </div>
         {% if page.showcomments == true %} 
-        <div class="commentariat" ng-app="myApp">
+        <h3>Comments</h3>
+        <div class="comments" ng-app="myApp">
             <div ng-controller="ChatController">
-                <ul>
-                    <li ng-repeat="comment in comments">
+                <ul class="commentlist">
+                    <li ng-repeat="comment in comments" id="[[ comment.id ]]">
                         <img src="http://www.gravatar.com/avatar/[[ comment.emailhash ]]/small/">
                         <span class="message">[[ comment.message ]]</span>
                     </li>
                 </ul>
                 <form ng-submit="addComment()">
                     <p>
-                        Your Email: 
-                        <input type="text" ng-model="commentEmail">
+                    <label>Your Email: 
+                        <input type="text" ng-model="commentEmail" helptext="Emails are not stored, just used for avatars."></label>
                     </p>
                     <p>
-                        Comment:
-                        <textarea ng-model="commentMessage">
+                    <label>Comment:
+                        <textarea ng-model="commentMessage" ng-enter="addComment()">
                         </textarea>
+                    </label>
                     </p>
-                    <input type="submit"/>
                 </form>
             </div>  
         </div>        

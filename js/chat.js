@@ -1,5 +1,5 @@
 
-function ChatController($scope) { 
+function ChatController($scope, $location, $anchorScroll) { 
 
     var Socket = function() {
         var server = "ws://localhost:8686";
@@ -11,11 +11,11 @@ function ChatController($scope) {
             console.log(message.email);
             console.log(message.message);
             if (message.type == 'message') { 
-                $scope.comments.push({message: message.message, emailhash: message.emailhash});
+                $scope.pushMessage(message);
             } else if (message.type == 'haidouzo') { 
                 var objects = message.objects;
                 for (var i = 0 ; i < objects.length; i ++) { 
-                     $scope.comments.push({message: objects[i].message, emailhash: objects[i].emailhash});
+                    $scope.pushMessage(objects[i]);
                 } 
             }
             $scope.$apply();
@@ -49,14 +49,40 @@ function ChatController($scope) {
 
     $scope.comments = [ ];
 
+    $scope.pushMessage = function(msg) { 
+        msg['id'] = "msg-"+$scope.comments.length;
+        $scope.comments.push(msg);
+        $scope.$apply();
+        var el = document.getElementsByClassName('commentlist')[0];
+        var msgel = document.getElementById(msg['id']);
+        el.scrollTop = msgel.offsetTop;
+    };
+
     $scope.addComment = function() {
         console.log("Adding a comment."); 
         $scope.socket.send($scope.commentEmail, $scope.commentMessage);
         $scope.commentMessage = '';
+    };
+
+    $scope.shouldSubmit = function(evt) { 
+        console.log(evt);
     };
 }
 
 var myApp = angular.module('myApp', [], function($interpolateProvider) {
         $interpolateProvider.startSymbol('[[');
         $interpolateProvider.endSymbol(']]');
+});
+
+angular.module('myApp').directive('ngEnter', function() { 
+    return function(scope, element, attrs) { 
+        element.bind("keyup", function(event) {
+            if (event.which == 13) { 
+                scope.$apply(function() { 
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
 });
