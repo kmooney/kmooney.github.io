@@ -23,4 +23,4 @@ Anyways, I will break down the componenets in future posts.
 
 Bug alert!  I just realized that comments leak between the rooms since it broadcasts to all listeners, not just other listeners on the current URLHash.  
 
-I fix it soon.
+I will fix it soon.
