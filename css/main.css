@@ -189,10 +189,11 @@ div.highlight {
 .comments { 
     display:block;
     float: left;
-    font-size: 0.5em;
     width: 100%;
 }
+
 .comments ul {
+    font-size: .5em;
     display: block;
     float: left;
     list-style: none;
@@ -200,19 +201,25 @@ div.highlight {
     width:100%;
     overflow: scroll;
 }
+
 .comments img { 
     float: left;
     display:block;
 }
+
 .comments span.message { 
     float:left;
     display:block;
     margin-left:30px;
     text-align: left;
 }
+
 .comments ul li { 
     display:block;
     float:left;
     clear:left;
 }
 
+.comments form { 
+    font-size: .5em;
+}
