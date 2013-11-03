@@ -1,2 +1,5 @@
-Add a comments section.  External, plz.  Put it on yr digital ocean.
 Fix right padding on homepage cards
+Fix up add comment form.  CSS + JS.
+Maybe hide the email field when you are done. 
+Switch it to a "(change)" link.
+
