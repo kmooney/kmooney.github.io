@@ -190,6 +190,7 @@ div.highlight {
     display:block;
     float: left;
     width: 100%;
+    margin-left: 10px;
 }
 
 .comments ul {
@@ -197,14 +198,18 @@ div.highlight {
     display: block;
     float: left;
     list-style: none;
-    height: 500px; 
-    width:100%;
+    max-height: 500px; 
     overflow: scroll;
+    margin-top: 20px;
+    width: 90%;
+    border: 1px solid #ddd;
+    margin-left: 0px;
 }
 
 .comments img { 
     float: left;
     display:block;
+    padding: 3px;
 }
 
 .comments span.message { 
@@ -212,6 +217,7 @@ div.highlight {
     display:block;
     margin-left:30px;
     text-align: left;
+    padding-top: 3px;
 }
 
 .comments ul li { 
@@ -222,4 +228,38 @@ div.highlight {
 
 .comments form { 
     font-size: .5em;
+}
+
+.comments form label { 
+    display: block;
+    float: left; 
+}
+
+.comments form p { 
+    display:block; 
+    float: left;
+    padding:0; margin:0;
+    margin-top:20px;
+
+}
+
+.comments form textarea { 
+    width: 300px;
+    height: 65px;
+    margin-left: 20px;
+}
+
+.comments form .helptext { 
+    font-style: italic;
+    font-color: #888;
+    font-size: .8em;
+    float: left; 
+    clear: left;
+    padding:0; margin:0;
+    text-align:left;
+    max-width: 300px;
+}
+.comments h3 { 
+    margin-left: 0;
+    padding-left: 0;
 }

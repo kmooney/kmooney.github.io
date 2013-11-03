@@ -2,14 +2,12 @@
 function ChatController($scope, $location, $anchorScroll) { 
 
     var Socket = function() {
-        var server = "ws://localhost:8686";
+        var server = "ws://chat.kevn.co:8686";
         var t = this;
         this.socket = new WebSocket(server+"/chat");
 
         this.socket.onmessage = function(evt) { 
             var message = JSON.parse(evt.data);
-            console.log(message.email);
-            console.log(message.message);
             if (message.type == 'message') { 
                 $scope.pushMessage(message);
             } else if (message.type == 'haidouzo') { 
@@ -22,7 +20,6 @@ function ChatController($scope, $location, $anchorScroll) {
         };
 
         this.socket.onclose = function(evt) { 
-            console.log("Connection Shut");
         };
 
         this.socket.onopen = function(evt) { 
@@ -59,13 +56,11 @@ function ChatController($scope, $location, $anchorScroll) {
     };
 
     $scope.addComment = function() {
-        console.log("Adding a comment."); 
         $scope.socket.send($scope.commentEmail, $scope.commentMessage);
         $scope.commentMessage = '';
     };
 
     $scope.shouldSubmit = function(evt) { 
-        console.log(evt);
     };
 }
 
