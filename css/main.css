@@ -166,7 +166,7 @@ div.highlight {
 .card .post_body,
 .card .excerpt { 
     text-align: left;
-    margin-left: 10px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     float: left;
