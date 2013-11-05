@@ -246,13 +246,13 @@ div.highlight {
     float: left;
     padding:0; margin:0;
     margin-top:20px;
+    margin-right: 20px;
 
 }
 
 .comments form textarea { 
     width: 300px;
     height: 65px;
-    margin-left: 20px;
 }
 
 .comments form .helptext { 
