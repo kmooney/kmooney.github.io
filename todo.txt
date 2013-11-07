@@ -3,4 +3,3 @@ Maybe hide the email field when you are done.
 Fix bug where comments show on all listening pages.
 Fix blog post graphics placement on Safari
 Test IE 9, 10
-Add google analytics
