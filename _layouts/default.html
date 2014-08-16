@@ -1,50 +1,89 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>kevn.co | {{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <!-- Chrome Frame for IE
+        ==================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
-        <!-- Custom CSS -->
+        <!-- CSS
+        ================================================== -->
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/skeleton.css">
+        <link rel="stylesheet" href="/css/layout.css">
+
+        <!-- Site specific CSS, all custom.
+        ==================================================== -->
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/pllrs.min.css">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+
+        <!-- MD5, Angular and custom js for tiny chat. 
+        ===================================================== -->
         <script type="text/javascript" src="/js/md5.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
         <script type="text/javascript" src="/js/chat.js"></script>
 
+        <!-- Favicons
+        ====================================================== -->
+          
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
     </head>
+
     <body>
-        <div id="header" class="pllrs2 _211">
-            <div class="name column linktext">Kevin Mooney</div>
-            <div class="column">
-                <ul class="links pllrs2 _222">
-                    <li class="column"><a target="_blank" class="linktext" href="http://github.com/kmooney">Github</a></li>
-                    <li class="column"><a target="_blank" class="linktext" href="http://twitter.com/kmooney">Twitter</a></li>
-                    <li class="column"><a class="linktext" href="/contact.html">Contact</a></li>
-                    <li class="column"><a class="linktext" href="/about.html">About</a></li>
-                    <li class="column"><a class="linktext" href="/">Blog</a></li>
-                </ul>
+        <div id="header" class="container">
+            
+            <div class="four columns">
+              <div class="row art-glob">
+              </div>
+              <div class="row">
+                <h3>Kevin Mooney</h3>
+              </div>
             </div>
+
+            <div class="twelve columns">
+                <ul class="row">
+                    <li class="column"><a target="_blank" class="" href="http://github.com/kmooney">Github</a></li>
+                    <li class="column"><a target="_blank" class="" href="http://twitter.com/kmooney">Twitter</a></li>
+                    <li class="column"><a class="" href="/contact.html">Contact</a></li>
+                    <li class="column"><a class="" href="/about.html">About</a></li>
+                    <li class="column"><a class="" href="/">Blog</a></li>
+                </ul>
+        
+                  {{ content }}
+
+            </div>
+
+
         </div>
-          {{ content }}
-          <script type="text/javascript">
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4297453-3']);
+            _gaq.push(['_setDomainName', 'kevn.co']);
+            _gaq.push(['_trackPageview']);
 
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-4297453-3']);
-              _gaq.push(['_setDomainName', 'kevn.co']);
-              _gaq.push(['_trackPageview']);
-
-              (function() {
-               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                 ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-               })();
-
+             })();
         </script>
+
+
     </body>
 </html>
