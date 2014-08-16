@@ -14,8 +14,15 @@ a.linktext {
     color: #7999a4;
 }
 
-div.art-glob { 
+div.art-spot { 
     background: #a0cad9;
     height:100px; width:100%;
     /** try #addfff for foreground on this **/
+}
+
+
+
+div.menu a {
+    padding-right:10px;
+
 }
