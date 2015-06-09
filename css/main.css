@@ -26,3 +26,12 @@ div.menu a {
     padding-right:10px;
 
 }
+
+.highlight { 
+    background: #ffe;
+    margin-bottom: 1.1em;
+}
+
+code {
+    font-family: Monaco, Courier, monospace;
+}
