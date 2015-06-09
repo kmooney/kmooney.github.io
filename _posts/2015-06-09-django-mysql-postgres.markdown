@@ -54,6 +54,7 @@ If you have virtualenv installed, you should create a virtual environment for th
     . bin/activate
     pip install -r requirements.txt
 
+
 Once your requirements are installed, you should have a working local development site!  Try and run the server to see what happens.  If you aren't sure which settings file to use, you can check the Procfile which should be in the `my-app-slug` directory.
 
     python manage.py runserver 0:8000 --settings=my-app-settings
