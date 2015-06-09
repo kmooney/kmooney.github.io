@@ -6,8 +6,6 @@ categories: django, heroku
 showcomments: false
 ---
 
-## "Business Reasons"
-
 While examining our hosting costs, I discovered that we were hosting one customer on Heroku and it cost us more than $900.00/mo.  The customer we were hosting was a medium-sized CMS site and we had a (relatively) twelve-factor compatible internal hosting environment that the site could be deployed to.  You can read about twelve-factor [here](http://12factor.net/).
 
 It turned out that the site would be easy to migrate to our production cluster, except for one small thing - our default database is MySQL and this very expensive CMS site was running in PostgreSQL.
