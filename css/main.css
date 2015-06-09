@@ -30,6 +30,8 @@ div.menu a {
 .highlight { 
     background: #ffe;
     margin-bottom: 1.1em;
+    padding: 1em;
+    overflow-x: auto;
 }
 
 code {
