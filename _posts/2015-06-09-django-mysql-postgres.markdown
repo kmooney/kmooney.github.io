@@ -1,5 +1,5 @@
 ---
-title: Getting out of Heroku and Migrating a Django project from PostgreSQL to MySQL
+title: Getting out of Heroku and Migrating a Django project from PostgreSQL to MySQL Pt. 1
 layout: post
 date: 2015-06-09
 categories: django heroku
@@ -51,13 +51,13 @@ I had a virtual environment installed, so I installed the requirements there.
     . bin/activate
     pip install -r requirements.txt
 
-With your requirements are installed, had a working development site!  I was able to run the django project and with some minor tweaks to the settings file, verify that everything was working.
+With my requirements installed, I had a working development site!  I was able to run the django project and with some minor tweaks to the settings file, verify that everything was working.
 
     python manage.py runserver 0:8000 --settings=my-app-settings
 
-(You can also put your settings into the `DJANGO_SETTINGS_MODULE` environment variable.  It's a good idea - otherwise you'll be typing the module name a lot.)
+(I put my settings into the `DJANGO_SETTINGS_MODULE` environment variable.  It's a good idea - cuts down on the typing.)
 
-### Your Second Dump
+### My Second Dump
 
 Next, I tried to dump everything as a fixture, with the intention of running loaddata on the dump and re-importing to MySQL.
    
