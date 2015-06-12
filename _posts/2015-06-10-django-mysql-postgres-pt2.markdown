@@ -1,10 +1,10 @@
------
+---
 title: Getting out of Heroku and Migrating a Django project from PostgreSQL to MySQL Pt. 2
 layout: post
 date: 2015-06-10
 categories: django heroku
 showcomments: false
------
+---
 
 *This is part of a 2 part series.  [You can find the first article here.](django-mysql-postgres.html)*
 
