@@ -22,7 +22,8 @@ It would be concievable to spin up a PostgreSQL database in production, but our 
 
 ### My First Dump
 
-So the first thing I had to do was get a copy of our database out of heroku.  [This post from Heroku](https://devcenter.heroku.com/articles/heroku-postgres-import-export) describes the step-by-step requirements.
+So the first thing I had to do was get a copy of our database out of heroku.  [This post from Heroku describes how to do that, step-by-step.](https://devcenter.heroku.com/articles/heroku-postgres-import-export)
+
 
 First, I captured the backup of the site:
     heroku pg:backups capture --app=my-app
