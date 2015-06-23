@@ -20,9 +20,21 @@ I will also modify my < 100 LOC tetris to create a tetris client, written in Rub
 
 ## What Are Microservices?
 
-### A Layperson's explanation
+First of all, let's get this out of the way: I have only some idea what I'm doing.
+I am essentially a layperson when it comes to *microservices* (having been building sort of big monolithic web and REST-api based systems for the last 10 years) but I will share with you my (possibly incorrect) understanding.
+A microservice architecture, as I understand it, is one where the functions of a larger, more monolithic, application are broken up into completley separate apps, each with an API that can be accessed via the network, or at least across the process boundary.
+As an aside, this isn't an especially new way of structuring applications.
+In the days before the ubiquity of HTTP-based APIs, interprocess communication and distributed systems were quite often set up to communicate either through shared memory or via IPC pipes.
+I would say that a characteristic of a microservice architecture is that the API is designed with the idea that it will serve responses to requests in a relatively stateless manner.
+In situations like this, the context of the request is maintained by the client either on the client side, or provided as a session-specific token.
+
+Old fashioned distributed systems were often poorly designed because they were tightly coupled and sometimes even synchronous over the process boundary.
+It's truly awesome that many of today's developers are native to the web, and so used to stateless requests and responses that a stateful async request would not even occur to most of them!
+If this seems like hyperbole, I've seen this twice in my career, and I'm not that old.
 
 ## What are the specific wrong tools for this job?
+
+OK!  *So that said*, we will be using microservices to implement a Tetris.
 
 ## What would the *right* tools be
 
