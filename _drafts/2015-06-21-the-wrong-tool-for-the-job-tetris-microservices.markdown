@@ -35,10 +35,37 @@ If this seems like hyperbole, I've seen this twice in my career, and I'm not tha
 ## What are the specific wrong tools for this job?
 
 OK!  *So that said*, we will be using microservices to implement a Tetris.
+To maximize the potential for disaster, I will be writing this in a heterogeneous language environemnt with at least one language I've never really used before.
+One of the microservices will be written in Go, one in Ruby and I'll write another part of the game in Python (which should be easy).
+I'll also use docker containers to hold each component, exposing an HTTP-based API interface.
+Tetris is already a pretty small service, so the microservices will be absurdly *micro*.
 
-## What would the *right* tools be
+### Gameboard
+The gameboard will store the state of the game, the score, how many lines have been completed.
+It also stores the grid - the configuration of already dropped shapes.  
+The gameboard needs to allow for a shape, position and configuration to be submitted, and return whether or not the submitted configuration is valid.
+It would be cool if we could register webhooks against the gameboard, for update when the state of a particular game changes.
+
+### Next Shape 
+The next shape service will return the next shape, randomly.
+
+### Current Shape Status
+This service must allow the current shape to be set.  It must allow the current shape to be moved, and disposed of.
+
+## What would the *right* tools be?
+
+In the case of a videogame, I would say there are lots of "right" tools, depending on how complex and advanced the game you plan.
+Most likely, you could get by with a tool like [Unity](www.unity3d.com) or even simpler tools like [Gosu in Ruby](https://www.libgosu.org/) or [Pygame in Python](http://pygame.org).
+Gosu and Pygame are both essentially wrappers around [SDL](https://www.libsdl.org/), though at slightly different levels of abstraction.  You can use SDL if you want to create simple games in C.
+
+If you want to get fancy, you can look into [Unreal Engine](https://www.unrealengine.com/what-is-unreal-engine-4).
+I've never used Unreal Engine, but as I understand it, you'll need to be pretty adept w/ C++ before you dive in.
+Of course, you're reading about a microservice Tetris!
+So you're probably already "adept."
 
 ## Measure and report
+
+
 
 ## Advantages of this silly approach
 
