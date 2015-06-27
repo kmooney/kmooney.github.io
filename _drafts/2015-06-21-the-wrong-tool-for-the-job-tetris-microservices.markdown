@@ -34,6 +34,8 @@ If this seems like hyperbole, I've seen this twice in my career, and I'm not tha
 
 ## What are the specific wrong tools for this job?
 
+![Diagram for new Tetrislike](/img/tetris-microservice/tetris-microservice-overview.png)
+
 OK!  *So that said*, we will be using microservices to implement a Tetris.
 To maximize the potential for disaster, I will be writing this in a heterogeneous language environemnt with at least one language I've never really used before.
 One of the microservices will be written in Go, one in Ruby and I'll write another part of the game in Python (which should be easy).
@@ -45,12 +47,34 @@ The gameboard will store the state of the game, the score, how many lines have b
 It also stores the grid - the configuration of already dropped shapes.  
 The gameboard needs to allow for a shape, position and configuration to be submitted, and return whether or not the submitted configuration is valid.
 It would be cool if we could register webhooks against the gameboard, for update when the state of a particular game changes.
+The gameboard will maintain lots of simultaneous games.
+Persistance should not be necessary.
 
 ### Next Shape 
 The next shape service will return the next shape, randomly.
+This service could potentially serve arbitrary shapes, not just the commonly played tetriminos.
 
 ### Current Shape Status
-This service must allow the current shape to be set.  It must allow the current shape to be moved, and disposed of.
+This service must allow the current shape to be set.
+It must allow the current shape to be moved, and disposed of.
+It must also allow the current shape's content to be replaced (see the rotator below).
+Shapes will be indexed by current game.
+
+### Rotator
+This service will take a shape and return a rotated copy of the shape.
+
+### Tetrislike Client
+This will connect to all of the services and present the gameboard, current shape, current game status, and next shape to the player.
+
+### Docker 
+We'll use Docker to containerize each microservice, and link the gameboard service to the others (the other services must be made aware of the gameboard)
+
+### Authentication and authorization
+It seems that the most popular method for securing microservices is to proxy them behind Nginx with an SSL certificate and basic http authentication.
+So, that's what we'll do that too!
+
+More and more I am finding that Nginx is the tool of choice when you want to bolt-on some baseline security to an otherwise security agnostic application.
+I wonder if it makes sense to create a general purpose authenticating and authorizing proxy service?
 
 ## What would the *right* tools be?
 
@@ -65,9 +89,15 @@ So you're probably already "adept."
 
 ## Measure and report
 
-
+### Scaling
+We are going to create lots of test clients to figure out how many simultaneous players we can deal with.
+Additionally, we are going to measure whether there is noticable latency between calls.
+What systems become overloaded as the number of users scales up?
 
 ## Advantages of this silly approach
+
+It turns out, this is not horrible!
+I tried to slice up the services to the point of absolute absurdity, but it seems like this builds a fairly good system that can scale to lots of users.
 
 ## 
 
