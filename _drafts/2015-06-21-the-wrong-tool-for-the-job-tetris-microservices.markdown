@@ -37,10 +37,16 @@ If this seems like hyperbole, I've seen this twice in my career, and I'm not tha
 ![Diagram for new Tetrislike](/img/tetris-microservice/tetris-microservice-overview.png)
 
 OK!  *So that said*, we will be using microservices to implement a Tetris.
-To maximize the potential for disaster, I will be writing this in a heterogeneous language environemnt with at least one language I've never really used before.
-One of the microservices will be written in Go, one in Ruby and I'll write another part of the game in Python (which should be easy).
+To maximize the potential for catastrophe, I will be writing this in a heterogeneous language environemnt with at least one language I've never really used before.
+
+One of the microservices will be written in Go, one in Ruby and I'll write another part of the game in Python, my go-to language.
+
+Not that it has GOTO.
+
+Anyways.
+
 I'll also use docker containers to hold each component, exposing an HTTP-based API interface.
-Tetris is already a pretty small service, so the microservices will be absurdly *micro*.
+Tetris is already a pretty small program, so the microservices will be absurdly *micro*.
 
 ### Gameboard
 The gameboard will store the state of the game, the score, how many lines have been completed.
@@ -88,16 +94,20 @@ Of course, you're reading about a microservice Tetris!
 So you're probably already "adept."
 
 ## Measure and report
+An interesting thing about this architecture is that we can measure requests per second as the program runs.
+I am curious to see how many requests per second one client causes, 10 clients, 100 clients.
+
+### Average latency per request.
+I am also curious about latency between the systems - we should be looking at ~ 10 ms latency from the server to the client upon which the game is run.
+It will also be interesting to investigate the latency between containers.
+We will need to log all that stuff.
 
 ### Scaling
 We are going to create lots of test clients to figure out how many simultaneous players we can deal with.
 Additionally, we are going to measure whether there is noticable latency between calls.
-What systems become overloaded as the number of users scales up?
+What components become overloaded as the number of users scales up?
 
 ## Advantages of this silly approach
 
 It turns out, this is not horrible!
 I tried to slice up the services to the point of absolute absurdity, but it seems like this builds a fairly good system that can scale to lots of users.
-
-## 
-
