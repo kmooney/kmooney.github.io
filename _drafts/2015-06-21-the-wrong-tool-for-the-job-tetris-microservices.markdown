@@ -5,7 +5,7 @@ date: 2015-06-21
 categories: programming the-wrong-tool-for-the-job microservices
 ---
 
-I've been thinking for a couple weeks about a series of posts called *"The Wrong Tool For The Job"* where I pick a tool that is arguably the wrong tool for a particular job, then build a proof of concept where the wrong tool is actually working to do the job.  
+I've been thinking for a couple weeks about a series of posts called *"The Wrong Tool For The Job"* where I pick a tool that is arguably the wrong tool for a particular job, then build a proof of concept where the wrong tool is actually working to do the job.
 It's supposed to be funny.
 And educational.
 
@@ -14,13 +14,17 @@ I know, I know, you're thinking "microservices" aren't a tool, they are a softwa
 Well, you're wrong.
 Architectural patterns are tools just as much as a specific brand of database is.
 
-With that out of the way, let's talk about Tetris.  In a previous post, I wrote about implementing Tetris on fewer than 100 lines of Ruby.  That was fun.  It's a small, self-contained project with few opportunities to break out specific services and APIs.  With that said, I am going to re-implement Tetris as Go microservices, running on a fleet of Amazon EC2 instances.  I will package each Tetris service in a Docker container and deploy it to EC2.
+With that out of the way, let's talk about Tetris.
+In a previous post, I wrote about implementing Tetris on fewer than 100 lines of Ruby.
+That was fun.
+It's a small, self-contained project with few opportunities to break out specific services and APIs.
+With that said, I am going to re-implement Tetris as Go microservices, running on a fleet of Amazon EC2 instances.
+I will package each Tetris service in a Docker container and deploy it to EC2.
 
 I will also modify my < 100 LOC tetris to create a tetris client, written in Ruby, to access the services.
 
 ## What Are Microservices?
 
-First of all, let's get this out of the way: I have only some idea what I'm doing.
 I am essentially a layperson when it comes to *microservices* (having been building sort of big monolithic web and REST-api based systems for the last 10 years) but I will share with you my (possibly incorrect) understanding.
 A microservice architecture, as I understand it, is one where the functions of a larger, more monolithic, application are broken up into completley separate apps, each with an API that can be accessed via the network, or at least across the process boundary.
 As an aside, this isn't an especially new way of structuring applications.
@@ -37,7 +41,7 @@ If this seems like hyperbole, I've seen this twice in my career, and I'm not tha
 ![Diagram for new Tetrislike](/img/tetris-microservice/tetris-microservice-overview.png)
 
 OK!  *So that said*, we will be using microservices to implement a Tetris.
-To maximize the potential for catastrophe, I will be writing this in a heterogeneous language environemnt with at least one language I've never really used before.
+To maximize the potential for catastrophe, I will be writing this in a heterogeneous language environment with at least one language I've never really used before.
 
 One of the microservices will be written in Go, one in Ruby and I'll write another part of the game in Python, my go-to language.
 
@@ -49,14 +53,16 @@ I'll also use docker containers to hold each component, exposing an HTTP-based A
 Tetris is already a pretty small program, so the microservices will be absurdly *micro*.
 
 ### Gameboard
+
 The gameboard will store the state of the game, the score, how many lines have been completed.
-It also stores the grid - the configuration of already dropped shapes.  
+It also stores the grid - the configuration of already dropped shapes.
 The gameboard needs to allow for a shape, position and configuration to be submitted, and return whether or not the submitted configuration is valid.
 It would be cool if we could register webhooks against the gameboard, for update when the state of a particular game changes.
 The gameboard will maintain lots of simultaneous games.
 Persistance should not be necessary.
 
-### Next Shape 
+### Next Shape
+
 The next shape service will return the next shape, randomly.
 This service could potentially serve arbitrary shapes, not just the commonly played tetriminos.
 
@@ -73,7 +79,7 @@ This service will take a shape and return a rotated copy of the shape.
 This will connect to all of the services and present the gameboard, current shape, current game status, and next shape to the player.
 
 ### Docker 
-We'll use Docker to containerize each microservice, and link the gameboard service to the others (the other services must be made aware of the gameboard)
+We'll use Docker to containerize each microservice, and link the gameboard service to the other (the other services must be made aware of the gameboard) services.
 
 ### Authentication and authorization
 It seems that the most popular method for securing microservices is to proxy them behind Nginx with an SSL certificate and basic http authentication.
@@ -93,21 +99,25 @@ I've never used Unreal Engine, but as I understand it, you'll need to be pretty 
 Of course, you're reading about a microservice Tetris!
 So you're probably already "adept."
 
-## Measure and report
+## Measure and Report
+
 An interesting thing about this architecture is that we can measure requests per second as the program runs.
 I am curious to see how many requests per second one client causes, 10 clients, 100 clients.
 
-### Average latency per request.
+### Average Latency Per Request
+
 I am also curious about latency between the systems - we should be looking at ~ 10 ms latency from the server to the client upon which the game is run.
 It will also be interesting to investigate the latency between containers.
 We will need to log all that stuff.
 
 ### Scaling
+
 We are going to create lots of test clients to figure out how many simultaneous players we can deal with.
 Additionally, we are going to measure whether there is noticable latency between calls.
 What components become overloaded as the number of users scales up?
 
-## Advantages of this silly approach
+## Advantages
 
 It turns out, this is not horrible!
 I tried to slice up the services to the point of absolute absurdity, but it seems like this builds a fairly good system that can scale to lots of users.
+
