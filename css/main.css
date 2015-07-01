@@ -14,6 +14,10 @@ a.linktext {
     color: #7999a4;
 }
 
+ul { 
+    list-style: inside;
+}
+
 div.post_body a { 
     background: #ffe;
     color: #7999a4;
