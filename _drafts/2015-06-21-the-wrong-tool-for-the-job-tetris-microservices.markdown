@@ -18,8 +18,8 @@ With that out of the way, let's talk about Tetris.
 In a previous post, I wrote about implementing Tetris on fewer than 100 lines of Ruby.
 That was fun.
 It's a small, self-contained project with few opportunities to break out specific services and APIs.
-With that said, I am going to re-implement Tetris as Go microservices, running on a fleet of Amazon EC2 instances.
-I will package each Tetris service in a Docker container and deploy it to EC2.
+With that said, I am going to re-implement Tetris as heterogeneous microservices, running on the cheapest cloud servers I can find.
+I will package each Tetris service in a Docker container and deploy it in a container.
 
 I will also modify my < 100 LOC tetris to create a tetris client, written in Ruby, to access the services.
 
@@ -99,25 +99,14 @@ I've never used Unreal Engine, but as I understand it, you'll need to be pretty 
 Of course, you're reading about a microservice Tetris!
 So you're probably already "adept."
 
-## Measure and Report
+## What's Next?
 
-An interesting thing about this architecture is that we can measure requests per second as the program runs.
-I am curious to see how many requests per second one client causes, 10 clients, 100 clients.
+Throughout the next few posts, I expect to discuss the specifics of building each component, from concept to completion.  Here's how I plan to follow up:
 
-### Average Latency Per Request
+  *   Development Posts
+  *   Measurement and Reportage
+  *   Scaling
+  *   Any advantages to this approach?
 
-I am also curious about latency between the systems - we should be looking at ~ 10 ms latency from the server to the client upon which the game is run.
-It will also be interesting to investigate the latency between containers.
-We will need to log all that stuff.
-
-### Scaling
-
-We are going to create lots of test clients to figure out how many simultaneous players we can deal with.
-Additionally, we are going to measure whether there is noticable latency between calls.
-What components become overloaded as the number of users scales up?
-
-## Advantages
-
-It turns out, this is not horrible!
-I tried to slice up the services to the point of absolute absurdity, but it seems like this builds a fairly good system that can scale to lots of users.
+Finally, this dovetails nicely with [Julython 2015](http://www.julython.org) so I'll be sharing my progress there, too.
 
