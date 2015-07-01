@@ -103,6 +103,7 @@ Each "move" function returns whether the move was valid, so the way I ensure onl
 
 ... where the `check` variable is a copy of the `@current` shape.
 
+
 ### Eliminating completed rows
 
 Ruby's built-in iterators make it surprisingly easy to eliminate completed rows:
