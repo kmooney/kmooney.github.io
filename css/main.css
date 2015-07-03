@@ -46,3 +46,14 @@ div.menu a {
 code {
     font-family: Monaco, Courier, monospace;
 }
+
+.recent_entry a { 
+    padding: 10px 10px 10px 0px;
+    text-decoration: none;
+    color: #7999a4;
+}
+
+.super {
+    vertical-align: text-bottom;
+    font-size: x-small;
+}

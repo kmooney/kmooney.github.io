@@ -58,6 +58,24 @@
               <div class="row">
                 <h3>Kevin Mooney</h3>
               </div>
+              <div class="row">
+                <h4>Recent</h3>
+              </div>
+              {% for post in site.posts limit:4 %} 
+                <div class="row recent_entry">
+                    <div class="date">
+                        {% assign d = post.date | date: "%-d"  %}
+                        {{ post.date | date: "%B" }} 
+                        {% case d %}
+                        {% when '1' or '21' or '31' %}{{ d }}<span class="super">st</span>
+                        {% when '2' or '22' %}{{ d }}<span class="super">nd</span>
+                        {% when '3' or '23' %}{{ d }}<span class="super">rd</span>
+                        {% else %}{{ d }}<span class="super">th</span>
+                        {% endcase %}
+                    </div>
+                    <span><a href="{{post.url}}">{{post.title}}</a></span>
+                </div>
+              {% endfor %} 
             </div>
 
             <div class="twelve columns menu">
