@@ -58,9 +58,11 @@ get lodged in the plumbing of a service that wasn't designed (or redesigned!) to
 
 It appears that there are a few different ways to deal with schemas in JSON, including a [draft proposal at json-schema.org](http://json-schema.org/).
 
+Because there are validation libraries created for Python, Go, Ruby, Haskell and Java, this appears to be a pretty easy path to pursue to validate that our JSON messages match a shared, defined, schema.
+
+It may be easy to create a service that validates messages against a preloaded set of schemas.
+
 ### Future Work
-
-
 
 #XML
 ## XSD
