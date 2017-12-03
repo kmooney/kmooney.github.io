@@ -3,4 +3,4 @@
 	url = https://github.com/xdissent/jekyll-rst.git
 [submodule "ld40"]
 	path = ld40
-	url = git@github.com:kmooney/ld40
+	url = https://github.com/kmooney/ld40.git
