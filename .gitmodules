@@ -1,7 +1,6 @@
 [submodule "_plugins/jekyll-rst"]
 	path = _plugins/jekyll-rst
 	url = https://github.com/xdissent/jekyll-rst.git
-[submodule "ld40"]
-	path = ld40
+[submodule "jam"]
+	path = jam
 	url = https://github.com/kmooney/ld40.git
-
